@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detail fragment of each earthquake -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+
+    <!--Contains the map -->
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map_detail_fragment"
+        android:layout_gravity="left|bottom"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        class="com.google.android.gms.maps.SupportMapFragment"/>
+
+    <ScrollView
+        android:id="@+id/scroll_summary"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top">
+
+        <RelativeLayout
+            android:id="@+id/map_relative_layout"
+            android:layout_width="fill_parent"
+            android:background="#ffffff"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+
+
+            <!--distancia como umbral de busqueda-->
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/title_textv"
+                android:gravity="center"
+                android:text="@string/detail_title"
+                android:textStyle="bold"
+                android:layout_alignParentLeft="true" />
+
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/earthquake_detail_icon"
+                android:src="@drawable/eartquake"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@+id/title_textv"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/text_detail"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/earthquake_detail_icon"
+                android:layout_alignTop="@+id/earthquake_detail_icon" />
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+</FrameLayout>

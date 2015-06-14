@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Earthquake Monitor</string>
+    <string name="title_activity_earthquakes_list">Earthquakes Monitor</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Refresh</string>
+    <string name="menu_about">about me...</string>
+    <string name="see_more">See more...</string>
+    <string name="detail_title">Earthquake detail info</string>
+    <string name="summary_there">There had been</string>
+    <string name="summary_documented">documented earthquakes</string>
+    <string name="summary_since">Since</string>
+    <string name="summary_magnitude">Magnitude</string>
+    <string name="summary_place">Place</string>
+    <string name="summary_depth">Depth</string>
+    <string name="summary_no_info">There is no info</string>
+    <string name="progess_message">Monitoring&#8230;</string>
+    <string name="aboout">Developer Fernando Rocha Flores</string>
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
+
+
+</resources>

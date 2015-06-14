@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <!-- ListRow Left sied Thumbnail image -->
+    <LinearLayout
+        android:id="@+id/opc_thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:layout_centerVertical="true"
+        android:padding="3dip" >
+
+        <ImageView
+            android:id="@+id/opc_image"
+            android:layout_marginLeft="5dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/app_name"
+            android:src="@android:drawable/sym_def_app_icon" />
+    </LinearLayout>
+
+    <!-- Titulo -->
+    <TextView
+        android:id="@+id/opc_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/opc_thumbnail" />
+
+
+</RelativeLayout>
