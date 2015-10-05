@@ -25,6 +25,8 @@ import java.util.List;
 
 import fer.mobileapps.com.earthquakemonitor.R;
 import fer.mobileapps.com.earthquakemonitor.views.beans.EarthquakeBean;
+import fer.mobileapps.com.earthquakemonitor.views.dao.EarthquakeDAO;
+import fer.mobileapps.com.earthquakemonitor.views.dao.EarthquakeImpDAO;
 
 /**
  * Created by frochapc on 9/06/15.
@@ -35,6 +37,9 @@ public class EarthquakeWebService extends AsyncTask<Void,Void,ArrayList<Earthqua
     public static final int EARTHQUAKES_SUCCES = 1;
     public static final int EARTHQUAKES_NO_DATA = 2;
     public static final int EARTHQUAKES_COMPLETION = 1;
+
+
+    private EarthquakeDAO earthquakeDAO;
 
     //handler to pass a bundle when is done doing in background
     private Handler mHandler;
@@ -48,6 +53,8 @@ public class EarthquakeWebService extends AsyncTask<Void,Void,ArrayList<Earthqua
     public EarthquakeWebService(Handler mHandler,Context context) {
         this.mHandler = mHandler;
         this.context=context;
+        //using DAO design pattern
+        earthquakeDAO=new EarthquakeImpDAO(context);
     }
 
     /**
@@ -74,6 +81,7 @@ public class EarthquakeWebService extends AsyncTask<Void,Void,ArrayList<Earthqua
             JSONArray arrayFeatures=geoJsonObject.getJSONArray("features");
 
 
+
             //gets the values to fill the EartquakeBean, these values are going to be use into the list
             //of earthquakes also into the detail fragment
             for (int i=0;i<arrayFeatures.length();i++){
@@ -96,6 +104,8 @@ public class EarthquakeWebService extends AsyncTask<Void,Void,ArrayList<Earthqua
                 //the earthquake is added to the list
                 earthquakes.add(earthquakeBean);
 
+                earthquakeDAO.insertEarthquake(earthquakeBean);
+
             }
 
 
@@ -105,6 +115,8 @@ public class EarthquakeWebService extends AsyncTask<Void,Void,ArrayList<Earthqua
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
+        }finally {
+
         }
 
         return earthquakes;
@@ -152,6 +164,7 @@ public class EarthquakeWebService extends AsyncTask<Void,Void,ArrayList<Earthqua
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        earthquakeDAO.open(); //open database connection
         if (progDailog == null || !progDailog.isShowing()){
             // iniciamos la progress
             progDailog = new ProgressDialog(context);
@@ -187,6 +200,8 @@ public class EarthquakeWebService extends AsyncTask<Void,Void,ArrayList<Earthqua
             }
         }
 
+        earthquakeDAO.getListEarthquakes();
+
         //send the list of earthquakes if any
         if (earthquakes!=null && !earthquakes.isEmpty()){
             Message mensaje=mHandler.obtainMessage();
@@ -207,6 +222,7 @@ public class EarthquakeWebService extends AsyncTask<Void,Void,ArrayList<Earthqua
         }
 
 
+        earthquakeDAO.close();
 
     }
 }

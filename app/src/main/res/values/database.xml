@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="table_eartquake_bean" tranlatable="false">CREATE TABLE IF NOT EXISTS eartquake(id INTEGER PRIMARY KEY AUTOINCREMENT, place TEXT, magnitude REAL, latitude REAL, longitude REAL)</string>
+
+</resources>

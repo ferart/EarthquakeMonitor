@@ -59,9 +59,9 @@ public class EarthquakeBean implements Parcelable,Comparable {
         //establishing the colors by this way, make them no a good indicator
 
 
-        int red  =(int)(255* magnitude); // if mean value is 1, is darkred
-        int green=(int)((255*(9.9-magnitude))/9.9); //substract the max
-        int blue =0;
+        int red=0;  //=(int)(255* magnitude); // if mean value is 1, is darkred
+        int green=0;//=(int)((255*(9.9-magnitude))/9.9); //substract the max
+        int blue =0;//=0;
 
         if ( magnitude<=0.99){
             red=0;
